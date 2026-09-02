@@ -56,11 +56,32 @@ The script saves CSV reports, confusion matrices, robustness curves, MLP learnin
 ├── results/
 │   └── .gitkeep
 ├── src/
-│   └── beed_robustness_analysis.py
+│   ├── config.py
+│   ├── data_processing.py
+│   ├── evaluation.py
+│   ├── main.py
+│   ├── models.py
+│   ├── noise.py
+│   ├── reporting.py
+│   ├── utils.py
+│   └── visualization.py
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
+
+### Source modules
+
+| File | Responsibility |
+|---|---|
+| `config.py` | Paths, random seed, SNR levels, and training settings |
+| `data_processing.py` | Data validation, train-test split, scaling, and clipping |
+| `noise.py` | AWGN generation and robust training augmentation |
+| `models.py` | SVM, Random Forest, XGBoost, and MLP definitions and training |
+| `evaluation.py` | Predictions, metrics, repeated noise tests, and summary tables |
+| `visualization.py` | Confusion matrices, learning curves, robustness plots, and ROC/PR curves |
+| `reporting.py` | Classification reports, error analysis, and automatic interpretation |
+| `main.py` | End-to-end experiment orchestration |
 
 ## Installation
 
@@ -83,13 +104,13 @@ pip install -r requirements.txt
 From the repository root, run:
 
 ```bash
-python src/beed_robustness_analysis.py
+python src/main.py
 ```
 
 By default, the script reads `data/BEED_Data_clean.csv` and writes all outputs to `results/`. Alternative locations can be provided through environment variables:
 
 ```bash
-BEED_DATA_PATH=/path/to/data.csv BEED_OUTPUT_DIR=/path/to/results python src/beed_robustness_analysis.py
+BEED_DATA_PATH=/path/to/data.csv BEED_OUTPUT_DIR=/path/to/results python src/main.py
 ```
 
 ## Important limitation
