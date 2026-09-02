@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# BEED project outputs and local artifacts
+.idea/
+.vscode/
+.DS_Store
+results/*
+!results/.gitkeep
+*.h5
+*.keras
+*.joblib
